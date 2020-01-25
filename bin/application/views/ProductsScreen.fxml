@@ -70,7 +70,7 @@
                   <Font size="22.0" />
                </font>
             </Label>
-            <JFXComboBox fx:id="size" editable="true" prefHeight="31.0" prefWidth="402.0" promptText="Selecione o Tamanho" />
+            <JFXComboBox fx:id="size" prefHeight="31.0" prefWidth="402.0" promptText="Selecione o Tamanho" />
             <Separator prefHeight="18.0" prefWidth="402.0">
                <VBox.margin>
                   <Insets bottom="-15.0" />
@@ -84,7 +84,7 @@
                   <Font size="22.0" />
                </font>
             </Label>
-            <JFXComboBox fx:id="itemType" editable="true" prefHeight="31.0" prefWidth="402.0" promptText="Selecione o Tipo" />
+            <JFXComboBox fx:id="itemType" prefHeight="31.0" prefWidth="402.0" promptText="Selecione o Tipo" />
             <Separator prefHeight="18.0" prefWidth="402.0">
                <VBox.margin>
                   <Insets bottom="-15.0" />
@@ -112,8 +112,12 @@
                   <Insets bottom="-20.0" />
                </VBox.margin>
             </Label>
-            <JFXComboBox fx:id="collection" editable="true" prefHeight="31.0" prefWidth="402.0" promptText="Selecione a Colecao" />
-            <JFXButton fx:id="saveButton" text="Salvar" />
+            <JFXComboBox fx:id="collection" prefHeight="31.0" prefWidth="402.0" promptText="Selecione a Colecao" />
+            <HBox fx:id="sendBox" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <JFXButton fx:id="saveButton" onAction="#save" text="Salvar" />
+               </children>
+            </HBox>
          </children>
       </VBox>
    </children>

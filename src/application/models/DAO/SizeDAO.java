@@ -1,6 +1,7 @@
 package application.models.DAO;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -27,5 +28,25 @@ public class SizeDAO {
 		}
 		
 		return sizes;
+	}
+	
+	public static Size getSize(String initials) {
+		Connection conn = JDBC.getConnection();
+		Size size = null;
+		String sql = "SELECT * FROM Size WHERE initials = ?";
+		try(PreparedStatement stat = conn.prepareStatement(sql)){
+			stat.setString(1, initials);
+			try(ResultSet rs = stat.executeQuery()){
+			while(rs.next()) {
+				int id = rs.getInt(1);
+				String name = rs.getString(2);
+				size = new Size(id, name);
+			}
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return size;
 	}
 }
