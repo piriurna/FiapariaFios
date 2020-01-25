@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXColorPicker?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox prefHeight="594.0" prefWidth="248.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="31.0" prefWidth="229.0" text="Produtos">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+            <JFXListView fx:id="products" prefHeight="628.0" prefWidth="224.0" />
+         </children>
+      </VBox>
+      <VBox alignment="TOP_CENTER" prefHeight="400.0" prefWidth="402.0" spacing="20.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="21.0" prefWidth="384.0" text="Informações">
+               <font>
+                  <Font size="30.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="-25.0" />
+               </VBox.margin>
+            </Label>
+            <Label alignment="BOTTOM_LEFT" contentDisplay="CENTER" prefHeight="21.0" prefWidth="413.0" text="Nome">
+               <VBox.margin>
+                  <Insets bottom="-20.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="name" promptText="Nome do produto" />
+            <Separator prefHeight="18.0" prefWidth="200.0">
+               <VBox.margin>
+                  <Insets bottom="-15.0" />
+               </VBox.margin>
+            </Separator>
+            <Label prefHeight="21.0" prefWidth="511.0" text="Preco">
+               <VBox.margin>
+                  <Insets bottom="-20.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="price" promptText="Preco do produto" />
+            <Separator prefHeight="18.0" prefWidth="402.0">
+               <VBox.margin>
+                  <Insets bottom="-15.0" />
+               </VBox.margin>
+            </Separator>
+            <Label contentDisplay="CENTER" prefHeight="21.0" prefWidth="430.0" text="Tamanho">
+               <VBox.margin>
+                  <Insets bottom="-20.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+            <JFXComboBox fx:id="size" editable="true" prefHeight="31.0" prefWidth="402.0" promptText="Selecione o Tamanho" />
+            <Separator prefHeight="18.0" prefWidth="402.0">
+               <VBox.margin>
+                  <Insets bottom="-15.0" />
+               </VBox.margin>
+            </Separator>
+            <Label prefHeight="21.0" prefWidth="403.0" text="Tipo">
+               <VBox.margin>
+                  <Insets bottom="-20.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+            <JFXComboBox fx:id="itemType" editable="true" prefHeight="31.0" prefWidth="402.0" promptText="Selecione o Tipo" />
+            <Separator prefHeight="18.0" prefWidth="402.0">
+               <VBox.margin>
+                  <Insets bottom="-15.0" />
+               </VBox.margin>
+            </Separator>
+            <Label prefHeight="21.0" prefWidth="402.0" text="Cor">
+               <font>
+                  <Font size="22.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="-15.0" />
+               </VBox.margin>
+            </Label>
+            <JFXColorPicker fx:id="color" prefHeight="25.0" prefWidth="400.0" />
+            <Separator prefHeight="18.0" prefWidth="402.0">
+               <VBox.margin>
+                  <Insets bottom="-15.0" />
+               </VBox.margin>
+            </Separator>
+            <Label prefHeight="21.0" prefWidth="403.0" text="Coleção">
+               <font>
+                  <Font size="22.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="-20.0" />
+               </VBox.margin>
+            </Label>
+            <JFXComboBox fx:id="collection" editable="true" prefHeight="31.0" prefWidth="402.0" promptText="Selecione a Colecao" />
+            <JFXButton fx:id="saveButton" text="Salvar" />
+         </children>
+      </VBox>
+   </children>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+</HBox>

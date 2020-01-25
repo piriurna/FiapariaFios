@@ -1,0 +1,26 @@
+.jfx-tab-pane .tab-header-background {
+    -fx-background-color: #273F62;
+}
+
+.jfx-tab-pane .tab-selected-line {
+	-fx-stroke: #D5B192;
+    -fx-stroke-width: 3pt;
+}
+
+.text-input {
+    -fx-text-fill: #273F62;
+    -fx-highlight-fill: #273F62;
+    -fx-highlight-text-fill: white;
+    -fx-prompt-text-fill: rgba(39, 63, 98, 0.5);
+    -fx-cursor: text;
+    -fx-padding: 0.333333em 0.583em 0.333333em 0.583em; /* 4 7 4 7 */
+}
+
+.label{
+	-fx-text-fill:#273F62;
+}
+
+#saveButton{
+	-fx-background-color: #273F62;
+	-fx-text-fill: #D5B192;
+}
