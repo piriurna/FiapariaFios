@@ -92,7 +92,7 @@ public class SalesScreenController {
 	
 	@FXML
 	private void registerSale() {
-		ScreenManager.createNewWindowModal("views/NewSale.fxml", new NewSaleController());
+		ScreenManager.createNewWindowModal("views/NewSale.fxml", new NewSaleController(), "Registrar Nova Venda");
 		sales.refresh();
 	}
 }

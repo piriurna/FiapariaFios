@@ -5,6 +5,7 @@ import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -81,24 +82,11 @@ public class ScreenManager {
 		return root;
 	}
 	
-	public static void createNewWindowModal(String fxmlLocation, Object controller, String styleSheetPath) {
+	public static void createNewWindowModal(String fxmlLocation, Object controller, String stageName) {
 		try {
 			Stage stage = new Stage();
-			Pane root = loadFXML(fxmlLocation, controller);
-			Scene scene = new Scene(root);
-			scene.getStylesheets().add(Main.class.getResource("/" + styleSheetPath).toExternalForm());
-			stage.setScene(scene);
-			stage.initOwner(primaryStage);
-			stage.initModality(Modality.APPLICATION_MODAL);
-			stage.showAndWait();
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-	}
-	
-	public static void createNewWindowModal(String fxmlLocation, Object controller) {
-		try {
-			Stage stage = new Stage();
+			stage.getIcons().add(new Image(Main.class.getResourceAsStream("/logo.png")));
+			stage.setTitle(stageName);
 			Pane root = loadFXML(fxmlLocation, controller);
 			Scene scene = new Scene(root);
 			scene.getStylesheets().add(Main.class.getResource("/" + "application.css").toExternalForm());
