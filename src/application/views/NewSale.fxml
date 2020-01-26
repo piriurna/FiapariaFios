@@ -17,7 +17,7 @@
             <Font size="30.0" />
          </font>
       </Label>
-      <ComboBox fx:id="customers" prefHeight="31.0" prefWidth="481.0" promptText="Selecione o Cliente" />
+      <ComboBox fx:id="customers" editable="true" prefHeight="31.0" prefWidth="481.0" promptText="Selecione o Cliente" />
       <JFXComboBox fx:id="products" prefHeight="31.0" prefWidth="475.0" promptText="Selecione o Produto" />
       <JFXDatePicker fx:id="saleDate" editable="false" prefHeight="31.0" prefWidth="468.0" promptText="Selecione a Data da Venda" />
       <JFXButton onAction="#registerSale" prefHeight="76.0" prefWidth="158.0" text="Registrar a Venda" />

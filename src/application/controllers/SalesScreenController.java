@@ -25,7 +25,7 @@ public class SalesScreenController {
 	private ObservableList<Sale> saleList = SalesDAO.getAllSales();
 	
 	@FXML
-	private TableColumn<Sale, String> saleId, customerId, customerName, productId, productName, saleDate;
+	private TableColumn<Sale, String> saleId, customerId, customerName, productId, productName, saleDate, salePrice;
 	
 	@FXML
 	private void initialize() {
@@ -86,6 +86,11 @@ public class SalesScreenController {
 		saleDate.setCellValueFactory(new Callback<CellDataFeatures<Sale, String>, ObservableValue<String>>() {
 		     public ObservableValue<String> call(CellDataFeatures<Sale, String> p) {
 		         return new ReadOnlyObjectWrapper<String>(String.valueOf(p.getValue().getSaleDate()));
+		     }
+		  });
+		salePrice.setCellValueFactory(new Callback<CellDataFeatures<Sale, String>, ObservableValue<String>>() {
+		     public ObservableValue<String> call(CellDataFeatures<Sale, String> p) {
+		         return new ReadOnlyObjectWrapper<String>(String.valueOf(p.getValue().getItem().getPrice()));
 		     }
 		  });
 	}

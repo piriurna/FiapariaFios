@@ -72,4 +72,28 @@ public class CustomersDAO {
 		}
 		return rowsUpdated;
 	}
+	
+	public static Customer getCustomer(String name) {
+		Connection conn = JDBC.getConnection();
+		Customer customer = null;
+		String sql = "SELECT * FROM Customer WHERE name = ?";
+		try(PreparedStatement stat = conn.prepareStatement(sql)){
+			stat.setString(1, name);
+			try(ResultSet rs = stat.executeQuery()){
+				if(rs.next()) {
+					int id = rs.getInt(1);
+					String customerName = rs.getString(2);
+					String cellphone = rs.getString(3);
+					String email = rs.getString(4); 
+					String address = rs.getString(5); 
+					String cpf = rs.getString(6);
+					String account_number = rs.getString(7);
+					customer = new Customer(id, customerName, cellphone, email, address, cpf, account_number);
+				}
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return customer;
+	}
 }

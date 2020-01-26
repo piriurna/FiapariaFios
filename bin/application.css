@@ -7,8 +7,14 @@
     -fx-stroke-width: 3pt;
 }
 
+.combo-box-base {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0 0 -1 0, 0, 1, 2;
+    -fx-background-radius: 0px;
+}
+
 .combo-box{
-	 -fx-prompt-text-fill: rgba(39, 63, 98, 0.5);
+	-fx-prompt-text-fill: rgba(39, 63, 98, 0.5);
 }
 
 .text-input {

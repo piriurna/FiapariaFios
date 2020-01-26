@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
@@ -11,9 +10,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" spacing="25.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="TOP_CENTER" prefWidth="879.0" spacing="25.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox>
+      <VBox spacing="10.0">
          <children>
             <Label text="Filtrar">
                <font>
@@ -25,8 +24,7 @@
             </Label>
             <HBox prefHeight="39.0" prefWidth="670.0" spacing="20.0">
                <children>
-                  <JFXTextField fx:id="filterField" prefHeight="31.0" prefWidth="404.0" />
-                  <JFXComboBox promptText="Selecione a coluna para filtrar" />
+                  <JFXTextField fx:id="filterField" prefHeight="31.0" prefWidth="587.0" promptText="Digite o produto ou informação do cliente para filtrar a lista" />
                </children>
             </HBox>
          </children>
@@ -40,12 +38,13 @@
             </Label>
             <TableView fx:id="sales" VBox.vgrow="ALWAYS">
                <columns>
-                  <TableColumn fx:id="saleId" maxWidth="-1.0" minWidth="90.0" prefWidth="-1.0" text="ID Venda" />
-                  <TableColumn fx:id="customerId" maxWidth="-1.0" minWidth="96.0" prefWidth="-1.0" text="ID Cliente" />
-                  <TableColumn fx:id="customerName" maxWidth="-1.0" minWidth="173.0" prefWidth="-1.0" text="Nome Cliente" />
-                  <TableColumn fx:id="productId" maxWidth="-1.0" minWidth="94.0" prefWidth="-1.0" text="ID Produto" />
-                  <TableColumn fx:id="productName" maxWidth="-1.0" minWidth="104.0" prefWidth="-1.0" text="Produto" />
-                  <TableColumn fx:id="saleDate" maxWidth="-1.0" minWidth="111.0" prefWidth="-1.0" text="Data de Venda" />
+                  <TableColumn fx:id="saleId" maxWidth="200.0" minWidth="90.0" prefWidth="-1.0" text="ID Venda" />
+                  <TableColumn fx:id="customerId" maxWidth="200.0" minWidth="96.0" prefWidth="-1.0" text="ID Cliente" />
+                  <TableColumn fx:id="customerName" maxWidth="200.0" minWidth="173.0" prefWidth="-1.0" text="Nome Cliente" />
+                  <TableColumn fx:id="productId" maxWidth="200.0" minWidth="94.0" prefWidth="-1.0" text="ID Produto" />
+                  <TableColumn fx:id="productName" maxWidth="200.0" minWidth="104.0" prefWidth="-1.0" text="Produto" />
+                  <TableColumn fx:id="saleDate" maxWidth="200.0" minWidth="111.0" prefWidth="-1.0" text="Data de Venda" />
+                  <TableColumn fx:id="salePrice" maxWidth="200.0" minWidth="111.0" prefWidth="120.0" text="Preço da Venda" />
                </columns>
             </TableView>
          </children>

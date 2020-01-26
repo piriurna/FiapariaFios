@@ -1,7 +1,6 @@
 package application.controllers;
 
 import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXComboBox;
 
 import application.models.Collection;
 import application.models.Item;
@@ -17,7 +16,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
 public class ProductsScreenController {
 
@@ -28,16 +27,16 @@ public class ProductsScreenController {
 	private TextField name, price;
 	
 	@FXML
-	private JFXComboBox<Size> size;
+	private ComboBox<Size> size;
 	
 	@FXML
-	private JFXComboBox<ItemType> itemType;
+	private ComboBox<ItemType> itemType;
 	
 	@FXML
 	private ColorPicker color;
 	
 	@FXML
-	private HBox sendBox;
+	private VBox sendBox;
 	
 	@FXML
 	private ComboBox<Collection> collection;
@@ -49,11 +48,13 @@ public class ProductsScreenController {
 	
 	@FXML
 	private void initialize() {
+		
 		populateList();
 		size.setItems(SizeDAO.getAllSizes());
 		collection.setItems(CollectionDAO.getAllCollections());
 		itemType.setItems(ItemTypesDAO.getAllItemTypes());
 		products.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
+			if(newVal == null) return;
 			if(newVal.getId() == ADD_USER_ID) {
 				clearFields();
 			}else
@@ -62,6 +63,7 @@ public class ProductsScreenController {
 	}
 
 	private void populateList() {
+		products.getItems().clear();
 		products.getItems().add(new Item(ADD_USER_ID, "+ Adicionar novo Produto", null, ADD_USER_ID, null, null, null, ADD_USER_ID));
 		products.getItems().addAll(ItemsDAO.getAllItems());
 	}
@@ -77,32 +79,45 @@ public class ProductsScreenController {
 			ItemsDAO.updateItem(item);
 		}
 		populateList();
+		clearFields();
 	}
 	
 	private void clearFields() {
 		name.clear();
 		price.clear();
 		size.setValue(null);
+		size.setEditable(true);
+		size.setPromptText("Selecione o Tamanho");
 		itemType.setValue(null);
+		itemType.setEditable(true);
+		itemType.setPromptText("Selecione o Tipo de Produto");
 		color.setValue(null);
 		collection.setValue(null);
+		collection.setEditable(true);
+		collection.setPromptText("Selecione a Coleção");
 	}
 	
 	private void updateItemInfos(Item item) {
 		item.setName(name.getText());
 		item.setPrice(Double.parseDouble(price.getText()));
+		size.setEditable(false);
+		size.setValue(products.getSelectionModel().getSelectedItem().getSize());
 		item.setSize(SizeDAO.getSize(size.getValue().toString()));
+		itemType.setEditable(false);
+		itemType.setValue(products.getSelectionModel().getSelectedItem().getItemType());
 		item.setItemType(itemType.getValue());
 		item.setColor(color.getValue());
+		collection.setEditable(false);
+		collection.setValue(products.getSelectionModel().getSelectedItem().getColection());
 		item.setColection(collection.getValue());
 	}
 
 	private void fillFields(Item item) {
 		name.setText(item.toString());
-		price.setText("R$ " + String.valueOf(item.getPrice()));
-		size.setPromptText(item.getSize().toString());
-		itemType.setPromptText(item.getItemType().toString());
+		price.setText(String.valueOf(item.getPrice()));
+		size.setValue(item.getSize());
+		itemType.setValue(item.getItemType());
 		color.setValue(item.getColor());
-		collection.setPromptText(item.getColection().toString());
+		collection.setValue(item.getColection());
 	}
 }

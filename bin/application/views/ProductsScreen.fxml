@@ -56,7 +56,12 @@
                   <Font size="22.0" />
                </font>
             </Label>
-            <JFXTextField fx:id="price" promptText="Preco do produto" />
+            <HBox alignment="CENTER_LEFT">
+               <children>
+                  <Label text="R$" />
+                  <JFXTextField fx:id="price" promptText="Preco do produto" />
+               </children>
+            </HBox>
             <Separator prefHeight="18.0" prefWidth="402.0">
                <VBox.margin>
                   <Insets bottom="-15.0" />
@@ -70,7 +75,7 @@
                   <Font size="22.0" />
                </font>
             </Label>
-            <JFXComboBox fx:id="size" promptText="Selecione o Tamanho" />
+            <JFXComboBox fx:id="size" editable="true" promptText="Selecione o Tamanho" />
             <Separator prefHeight="18.0" prefWidth="402.0">
                <VBox.margin>
                   <Insets bottom="-15.0" />
@@ -84,7 +89,7 @@
                   <Font size="22.0" />
                </font>
             </Label>
-            <JFXComboBox fx:id="itemType" promptText="Selecione o Tipo" />
+            <JFXComboBox fx:id="itemType" editable="true" promptText="Selecione o Tipo" />
             <Separator prefHeight="18.0" prefWidth="402.0">
                <VBox.margin>
                   <Insets bottom="-15.0" />
@@ -112,12 +117,12 @@
                   <Insets bottom="-20.0" />
                </VBox.margin>
             </Label>
-            <JFXComboBox fx:id="collection" promptText="Selecione a Coleção" />
-            <HBox fx:id="sendBox" alignment="CENTER">
+            <JFXComboBox fx:id="collection" editable="true" promptText="Selecione a Coleção" />
+            <VBox fx:id="sendBox" alignment="TOP_CENTER">
                <children>
                   <JFXButton fx:id="saveButton" onAction="#save" prefHeight="46.0" prefWidth="117.0" text="Salvar" />
                </children>
-            </HBox>
+            </VBox>
          </children>
       </VBox>
    </children>
