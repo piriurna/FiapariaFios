@@ -2,7 +2,6 @@ package application.controllers;
 
 import application.ScreenManager;
 import javafx.fxml.FXML;
-import javafx.scene.control.Control;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 

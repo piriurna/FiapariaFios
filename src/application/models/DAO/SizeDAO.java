@@ -49,4 +49,15 @@ public class SizeDAO {
 		
 		return size;
 	}
+	
+	public static void createNewSize(Size size) {
+		Connection conn = JDBC.getConnection();
+		String sql = "INSERT INTO Size(initials) VALUES(?)";
+		try(PreparedStatement stat = conn.prepareStatement(sql)){
+			stat.setString(1, size.getInitials());
+			stat.executeUpdate();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }

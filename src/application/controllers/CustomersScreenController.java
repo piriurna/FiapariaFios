@@ -1,14 +1,11 @@
 package application.controllers;
 
-import java.util.List;
-
 import com.jfoenix.controls.JFXButton;
 
 import application.models.Customer;
 import application.models.DAO.CustomersDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
