@@ -115,7 +115,7 @@
             <JFXComboBox fx:id="collection" promptText="Selecione a Coleção" />
             <HBox fx:id="sendBox" alignment="CENTER">
                <children>
-                  <JFXButton fx:id="saveButton" onAction="#save" text="Salvar" />
+                  <JFXButton fx:id="saveButton" onAction="#save" prefHeight="46.0" prefWidth="117.0" text="Salvar" />
                </children>
             </HBox>
          </children>

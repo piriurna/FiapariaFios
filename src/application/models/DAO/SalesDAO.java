@@ -1,6 +1,7 @@
 package application.models.DAO;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -65,5 +66,18 @@ public class SalesDAO {
 		}
 		
 		return sales;
+	}
+	
+	public static void registerNewSale(Sale sale) {
+		Connection conn = JDBC.getConnection();
+		String sql = "INSERT INTO Item_sold(Customer_id, Item_id, sale_date) VALUES(?,?,?)";
+		try(PreparedStatement stat = conn.prepareStatement(sql)){
+			stat.setInt(1, sale.getCustomer().getId());
+			stat.setInt(2, sale.getItem().getId());
+			stat.setString(3, String.valueOf(sale.getSaleDate()));
+			stat.executeUpdate();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
 	}
 }

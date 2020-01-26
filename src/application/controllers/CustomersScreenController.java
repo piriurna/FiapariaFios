@@ -60,7 +60,8 @@ public class CustomersScreenController {
 			if(CustomersDAO.createNewCustomer(customer) > 0)
 				sendBox.getChildren().add(new Label("Produto Adicionado com Sucesso"));
 		}else {
-			CustomersDAO.updateCustomer(customer);
+			if(CustomersDAO.updateCustomer(customer) > 0)
+				sendBox.getChildren().add(new Label("Produto Adicionado com Sucesso"));
 		}
 		customers.getItems().clear();
 		populateList();

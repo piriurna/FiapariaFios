@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
@@ -10,29 +11,46 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="TOP_CENTER" spacing="25.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <HBox prefHeight="39.0" prefWidth="670.0" spacing="20.0">
+      <VBox>
          <children>
-            <JFXTextField prefHeight="31.0" prefWidth="404.0" />
-            <JFXComboBox promptText="Selecione a coluna para filtrar" />
+            <Label text="Filtrar">
+               <font>
+                  <Font size="25.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="-15.0" />
+               </VBox.margin>
+            </Label>
+            <HBox prefHeight="39.0" prefWidth="670.0" spacing="20.0">
+               <children>
+                  <JFXTextField fx:id="filterField" prefHeight="31.0" prefWidth="404.0" />
+                  <JFXComboBox promptText="Selecione a coluna para filtrar" />
+               </children>
+            </HBox>
          </children>
-      </HBox>
-      <Label alignment="CENTER" contentDisplay="CENTER" text="Vendas">
-         <font>
-            <Font size="30.0" />
-         </font>
-      </Label>
-      <TableView fx:id="sales">
-         <columns>
-            <TableColumn fx:id="saleId" maxWidth="-1.0" minWidth="90.0" prefWidth="-1.0" text="ID Venda" />
-            <TableColumn fx:id="customerId" maxWidth="-1.0" minWidth="96.0" prefWidth="-1.0" text="ID Cliente" />
-            <TableColumn fx:id="customerName" maxWidth="-1.0" minWidth="173.0" prefWidth="-1.0" text="Nome Cliente" />
-            <TableColumn fx:id="productId" maxWidth="-1.0" minWidth="94.0" prefWidth="-1.0" text="ID Produto" />
-            <TableColumn fx:id="productName" maxWidth="-1.0" minWidth="104.0" prefWidth="-1.0" text="Produto" />
-            <TableColumn fx:id="saleDate" maxWidth="-1.0" minWidth="111.0" prefWidth="-1.0" text="Data de Venda" />
-         </columns>
-      </TableView>
+      </VBox>
+      <VBox alignment="TOP_CENTER" VBox.vgrow="ALWAYS">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" text="Vendas">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+            <TableView fx:id="sales" VBox.vgrow="ALWAYS">
+               <columns>
+                  <TableColumn fx:id="saleId" maxWidth="-1.0" minWidth="90.0" prefWidth="-1.0" text="ID Venda" />
+                  <TableColumn fx:id="customerId" maxWidth="-1.0" minWidth="96.0" prefWidth="-1.0" text="ID Cliente" />
+                  <TableColumn fx:id="customerName" maxWidth="-1.0" minWidth="173.0" prefWidth="-1.0" text="Nome Cliente" />
+                  <TableColumn fx:id="productId" maxWidth="-1.0" minWidth="94.0" prefWidth="-1.0" text="ID Produto" />
+                  <TableColumn fx:id="productName" maxWidth="-1.0" minWidth="104.0" prefWidth="-1.0" text="Produto" />
+                  <TableColumn fx:id="saleDate" maxWidth="-1.0" minWidth="111.0" prefWidth="-1.0" text="Data de Venda" />
+               </columns>
+            </TableView>
+         </children>
+      </VBox>
+      <JFXButton onAction="#registerSale" prefHeight="63.0" prefWidth="213.0" ripplerFill="WHITE" text="Registrar Nova Venda" />
    </children>
    <padding>
       <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />

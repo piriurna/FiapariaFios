@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="35.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label text="Registrar Nova Venda">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="customers" prefHeight="31.0" prefWidth="481.0" promptText="Selecione o Cliente" />
+      <JFXComboBox fx:id="products" prefHeight="31.0" prefWidth="475.0" promptText="Selecione o Produto" />
+      <JFXDatePicker fx:id="saleDate" editable="false" prefHeight="31.0" prefWidth="468.0" promptText="Selecione a Data da Venda" />
+      <JFXButton onAction="#registerSale" prefHeight="76.0" prefWidth="158.0" text="Registrar a Venda" />
+   </children>
+   <padding>
+      <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+   </padding>
+</VBox>

@@ -24,7 +24,7 @@
 	-fx-text-fill:#273F62;
 }
 
-#saveButton{
+.button{
 	-fx-background-color: #273F62;
 	-fx-text-fill: #D5B192;
 }
