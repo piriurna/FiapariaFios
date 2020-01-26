@@ -7,6 +7,8 @@ import application.models.Collection;
 import application.models.Item;
 import application.models.ItemType;
 import application.models.Size;
+import application.models.DAO.CollectionDAO;
+import application.models.DAO.ItemTypesDAO;
 import application.models.DAO.ItemsDAO;
 import application.models.DAO.SizeDAO;
 import javafx.fxml.FXML;
@@ -16,7 +18,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
-import javafx.scene.paint.Color;
 
 public class ProductsScreenController {
 
@@ -48,15 +49,21 @@ public class ProductsScreenController {
 	
 	@FXML
 	private void initialize() {
-		products.getItems().add(new Item(ADD_USER_ID, "+ Adicionar novo Produto", null, ADD_USER_ID, null, null, null, ADD_USER_ID));
-		products.getItems().addAll(ItemsDAO.getAllItems());
+		populateList();
 		size.setItems(SizeDAO.getAllSizes());
+		collection.setItems(CollectionDAO.getAllCollections());
+		itemType.setItems(ItemTypesDAO.getAllItemTypes());
 		products.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
 			if(newVal.getId() == ADD_USER_ID) {
 				clearFields();
 			}else
 				fillFields(newVal);
 		});
+	}
+
+	private void populateList() {
+		products.getItems().add(new Item(ADD_USER_ID, "+ Adicionar novo Produto", null, ADD_USER_ID, null, null, null, ADD_USER_ID));
+		products.getItems().addAll(ItemsDAO.getAllItems());
 	}
 	
 	@FXML
@@ -66,8 +73,10 @@ public class ProductsScreenController {
 		if(item.getId() == ADD_USER_ID) {
 			if(ItemsDAO.createNewItem(item) > 0)
 				sendBox.getChildren().add(new Label("Produto Adicionado com Sucesso"));
-		}else
+		}else {
 			ItemsDAO.updateItem(item);
+		}
+		populateList();
 	}
 	
 	private void clearFields() {
@@ -90,10 +99,10 @@ public class ProductsScreenController {
 
 	private void fillFields(Item item) {
 		name.setText(item.toString());
-		price.setText(String.valueOf(item.getPrice()));
-		size.setValue(item.getSize());
-		itemType.setValue(item.getItemType());
+		price.setText("R$ " + String.valueOf(item.getPrice()));
+		size.setPromptText(item.getSize().toString());
+		itemType.setPromptText(item.getItemType().toString());
 		color.setValue(item.getColor());
-		collection.setValue(item.getColection());
+		collection.setPromptText(item.getColection().toString());
 	}
 }

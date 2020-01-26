@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.VBox?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="269.0" prefWidth="501.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TableView fx:id="sales">
+        <columns>
+            <TableColumn fx:id="productId" maxWidth="98.0" minWidth="50.0" prefWidth="85.0" text="ID Produto" />
+          <TableColumn fx:id="customerName" maxWidth="-1.0" minWidth="114.0" prefWidth="-1.0" text="Nome Cliente" />
+          <TableColumn fx:id="productName" maxWidth="-1.0" minWidth="116.0" prefWidth="-1.0" text="Produto" />
+            <TableColumn fx:id="saleDate" maxWidth="-1.0" minWidth="138.0" prefWidth="-1.0" text="Data de Venda" />
+        </columns>
+      </TableView>
+   </children>
+</VBox>

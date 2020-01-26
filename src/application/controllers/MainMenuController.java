@@ -8,7 +8,7 @@ import javafx.scene.control.TabPane;
 public class MainMenuController {
 
 	@FXML
-	private Tab products, customers;
+	private Tab products, customers, sales;
 	
 	@FXML
 	private TabPane mainScreen;
@@ -16,5 +16,7 @@ public class MainMenuController {
 	@FXML
 	private void initialize() {
 		products.setContent(ScreenManager.loadFXML("views/ProductsScreen.fxml", new ProductsScreenController()));
+		customers.setContent(ScreenManager.loadFXML("views/CustomersScreen.fxml", new CustomersScreenController()));
+		sales.setContent(ScreenManager.loadFXML("views/SalesScreen.fxml", new SalesScreenController()));
 	}
 }

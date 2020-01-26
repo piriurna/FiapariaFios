@@ -37,7 +37,6 @@ public class ItemsDAO {
 				int sizeId = rs.getInt(6);
 				String initials = rs.getString(7);
 				Size size = new Size(sizeId, initials);
-				
 				String colorString = rs.getString(8);
 				Color color = Color.valueOf(colorString);
 				int collectionId = rs.getInt(9);
@@ -64,7 +63,10 @@ public class ItemsDAO {
 			stat.setInt(3, item.getItemType().getId());
 			stat.setInt(4, item.getSize().getId());
 			stat.setInt(5, item.getColection().getId());
-			stat.setString(6, String.valueOf(item.getColor()));
+			Color color = item.getColor();
+			String colorString = "#" + Integer.toHexString(color.hashCode()).substring(0, 6).toUpperCase();
+			System.out.println("Color to string: " + colorString);
+			stat.setString(6, colorString);
 			stat.setInt(7, item.getStock());
 			rowsUpdated = stat.executeUpdate();
 		}catch(SQLException e) {

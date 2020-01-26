@@ -7,6 +7,10 @@
     -fx-stroke-width: 3pt;
 }
 
+.combo-box{
+	 -fx-prompt-text-fill: rgba(39, 63, 98, 0.5);
+}
+
 .text-input {
     -fx-text-fill: #273F62;
     -fx-highlight-fill: #273F62;

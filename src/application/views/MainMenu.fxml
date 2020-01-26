@@ -5,7 +5,8 @@
 
 <JFXTabPane fx:id="mainScreen" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <tabs>
-      <Tab fx:id="products" text="Produtos" />
-      <Tab fx:id="customers" text="Clientes" />
+      <Tab fx:id="products" closable="false" text="Produtos" />
+      <Tab fx:id="customers" closable="false" text="Clientes" />
+       <Tab fx:id="sales" closable="false" text="Vendas" />
    </tabs>
 </JFXTabPane>
